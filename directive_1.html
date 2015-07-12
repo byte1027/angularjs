@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head>
+		<meta charset="utf-8">
+		<title>directive传递参数</title>
+	</head>
+
+	<body>
+		<div>
+			<my-dir></my-dir>
+		</div>
+
+		<div>
+			<my-dir1 name="shuaijun"></my-dir1>
+		</div>
+
+		<script src="//www.w3cschool.cc/try/angularjs/1.2.5/angular.min.js"></script>
+		<script>
+			angular.module('myApp', [])
+				.directive('myDir', function() {
+					return {
+						restrict: 'E',
+						replace: false,
+						template: '<p>Hello this is myDir.</p>'
+					};
+				})
+				.directive('myDir1',function(){
+					return{
+						restrict:'E',
+						replace:false,
+						scope:{
+							name:'@'
+						},
+						template:'<p>Hello {{name}}.</p>'
+					};
+				})
+				.directive('myDir2',function(){
+					return {
+						restrict:'E',
+						replace:false,
+						scope:{
+							name:'@'
+						},
+					};
+				});
+		</script>
+
+	</body>
+
+</html>
